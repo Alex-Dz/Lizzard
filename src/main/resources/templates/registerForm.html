@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <!-- favicon -->
+    <link rel="shortcut icon" th:href="@{/favicon.ico}" href="favicon.ico">
+
+    <title>Registro</title>
+    <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css" th:href="@{/bootstrap/css/bootstrap.min.css}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=ABeeZee">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Alfa+Slab+One">
+    <link rel="stylesheet" href="/fonts/font-awesome.min.css" th:href="@{/fonts/font-awesome.min.css}">
+    <link rel="stylesheet" href="/fonts/simple-line-icons.min.css" th:href="@{/fonts/simple-line-icons.min.css}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="/css/styles.min.css" th:href="@{/css/styles.min.css}">
+    <!--  dependencias para fuentes, animaciones y efecto paralax adicionales  -->
+    <link rel="stylesheet" type="text/css"
+          href="https://colorlib.com/etc/lf/Login_v1/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="https://colorlib.com/etc/lf/Login_v1/css/util.css">
+    <link rel="stylesheet" type="text/css" href="https://colorlib.com/etc/lf/Login_v1/css/main.css">
+    <link rel="stylesheet" type="text/css" href="https://colorlib.com/etc/lf/Login_v1/vendor/animate/animate.css">
+    <link rel="stylesheet" type="text/css"
+          href="https://colorlib.com/etc/lf/Login_v1/vendor/css-hamburgers/hamburgers.min.css">
+    <link rel="stylesheet" type="text/css" href="https://colorlib.com/etc/lf/Login_v1/vendor/select2/select2.min.css">
+</head>
+<body class="text-center"
+      style="background: linear-gradient(60deg, rgb(17,170,170), rgb(129,208,102)), #ffffff;max-height: 90vh;">
+<header style="padding: 0px;margin: 10px;"><h1></h1></header>
+<section style="padding: 4em;margin: 1em;font-family: ABeeZee, sans-serif;">
+    <div class="container text-nowrap text-break flex-fill justify-content-center align-items-center align-self-center vw-large"
+         style="color: rgba(33,37,41,0);">
+        <div class="card">
+            <div class="card-header" style="background: rgba(0,0,0,0);border-style: none;"><h5 class="mb-0"
+                                                                                               style="color: var(--gray-dark);font-size: 37px;font-family: ABeeZee, sans-serif;font-style: normal;">
+                Registro - Lizzard C.A.</h5></div>
+            <div class="card-body" style="border-style: none;">
+                <div class="row">
+                    <div class="col justify-content-center align-items-center align-content-center"
+                         style="border-style: none;">
+                        <img class="img-fluid justify-content-center align-content-center justify-content-xl-start"
+                             data-bss-hover-animate="bounce" id="lizzard-img" src="/img/lizard.svg"
+                             type="image/svg+xml">
+                        <!--<object class="adaptative-img" data="images/UNpawvector.svg" type="image/svg+xml"></object>-->
+                    </div>
+                    <div class="col" style="border-style: none;">
+                        <form th:object="${user}" th:action="@{/register}" method="post" style="padding: 1em;">
+                            <div style="padding: 0px;margin: 1em;"><i class="fa fa-user-o d-inline-flex"
+                                                                      data-toggle="tooltip" data-bss-tooltip=""
+                                                                      data-bss-hover-animate="pulse"
+                                                                      style="color: var(--gray-dark);margin: 0em 0.2em;"
+                                                                      title="First Name"></i>
+                                <input
+                                        class="form-control d-inline-flex" type="text"
+                                        th:field="${user.firstName}"
+                                        style="border-radius: 2em;background: rgba(0,0,0,0.12);border-style: none;margin: 0em 0.5em;width: 25em;"
+                                        placeholder="First Name" name="firstName" autofocus="" required=""
+                                        pattern="[a-zA-z]{1,50}"></div>
+                            <div style="padding: 0px;margin: 1em;"><i class="fa fa-user-o d-inline-flex"
+                                                                      data-toggle="tooltip" data-bss-tooltip=""
+                                                                      data-bss-hover-animate="pulse"
+                                                                      style="color: var(--gray-dark);margin: 0em 0.2em;"
+                                                                      title="Last Name"></i>
+                                <input
+                                        class="form-control d-inline-flex" type="text"
+                                        th:field="${user.lastName}"
+                                        style="border-radius: 2em;background: rgba(0,0,0,0.12);border-style: none;margin: 0em 0.5em;width: 25em;"
+                                        placeholder="Last Name" name="lastName" required="" pattern="[a-zA-z]{1,50}">
+                            </div>
+                            <div style="padding: 0px;margin: 1em;"><i class="fa fa-envelope-o d-inline-flex"
+                                                                      data-toggle="tooltip" data-bss-tooltip=""
+                                                                      data-bss-hover-animate="pulse"
+                                                                      style="color: var(--gray-dark);margin: 0em 0.2em;"
+                                                                      title="Email"></i>
+                                <input
+                                        class="form-control d-inline-flex" type="email"
+                                        th:field="${user.email}"
+                                        style="border-radius: 2em;background: rgba(0,0,0,0.12);border-style: none;margin: 0em 0.5em;width: 25em;"
+                                        placeholder="Email" name="email" required="" inputmode="email"
+                                        pattern="([a-zA-Z0-9\-._])+@([a-zA-Z0-9.])+\.+(com|co|es|net)"></div>
+                            <div style="padding: 0px;margin: 1em;"><i class="icon-lock d-inline-flex"
+                                                                      data-toggle="tooltip" data-bss-tooltip=""
+                                                                      data-bss-hover-animate="pulse"
+                                                                      style="color: var(--gray-dark);margin: 0em 0.2em;"
+                                                                      title="Password"></i>
+                                <input
+                                        class="form-control d-inline-flex" type="password" id="password"
+                                        style="border-radius: 2em;background: rgba(0,0,0,0.12);border-style: none;margin: 0em 0.5em;width: 25em;"
+                                        placeholder="Password" name="password" autofocus="" required=""
+                                        pattern="[a-zA-Z0-9_.!\-@\s]{6,20}"></div>
+                            <button class="btn btn-primary" id="summit-button" type="submit"
+                                    style="background: var(--success);margin: 2em 0em;border-radius: 2em;padding: 0.5em 11em;border-style: none;">
+                                Registro
+                            </button>
+                            <div th:if="${success}">
+                                <div class="alert alert-success" role="alert" id="alert-success"
+                                     style="border-radius: 2em;border-style: none;">
+                                    <span><strong>Usuario registrado</strong></span>
+                                </div>
+                            </div>
+                            <div th:if="${success == false}">
+                                <div class="alert alert-danger" role="alert" id="alert-fail"
+                                     style="border-radius: 2em;border-style: none;">
+                                    <span><strong>Usuario NO registrado</strong></span>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<footer class="fixed-bottom" style="font-family: ABeeZee, sans-serif;">
+    <div class="container vw-small" style="padding: 0.2em 0em;">
+        <div class="row">
+            <div class="col d-inline-flex align-items-xl-center" style="min-height: 2em;"><span
+                    style="color: var(--gray-dark);">2021&nbsp;© - Ingesoft I - Universidad Nacional de Colombia</span>
+            </div>
+            <div class="col d-inline-flex justify-content-xl-end align-items-xl-center" style="min-height: 2em;"><span
+                    style="color: var(--gray-dark);">Alexander Cárdenas Diaz&nbsp;</span><i class="fa fa-envelope-o"
+                                                                                            style="margin: 0em 0.5em;"></i><a
+                    href="mailto:dicardenasd@unal.edu.co" style="color: var(--gray-dark);">dicardenasd@unal.edu.co</a>
+            </div>
+        </div>
+    </div>
+</footer>
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/bootstrap/js/bootstrap.min.js"></script>
+<script src="assets/js/script.min.js"></script>
+</body>
+</html>
