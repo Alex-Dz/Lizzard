@@ -12,12 +12,12 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
-public class RegistroController {
+public class RegisterController {
 
     @Autowired
     private UserService userService;
 
-    @GetMapping("/")
+    @GetMapping("/register")
     public String registro(Model model) {
         model.addAttribute("user", new User());
         return "registerForm";
@@ -35,6 +35,9 @@ public class RegistroController {
                 model.addAttribute("success", true);
                 return "registerForm";
             } catch (Exception e) {
+                model.addAttribute("user", user);
+                model.addAttribute("success", false);
+                model.addAttribute("passwordDontMatch", true);
                 return "registerForm";
             }
         }
